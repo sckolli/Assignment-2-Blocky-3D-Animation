@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blocky Dog Animation</title>
+  <style>
+    body { 
+      margin: 0; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #f0f0f0;
+    }
+    canvas { 
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .controls {
+      margin: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 800px;
+    }
+    .control-group { 
+      margin: 15px 0;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    button {
+      padding: 8px 15px;
+      background: #000c00;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover { background: #45a049; }
+    input[type="range"] { width: 200px; }
+  </style>
+</head>
+<body onload="main()">
+  <canvas id="webgl" width="800" height="600"></canvas>
+
+  <div class="controls">
+    <div class="control-group">
+      <input type="range" min="-30" max="30" value="0" id="tailRotateSlide">
+      <label>Tail Wag</label>
+      
+      <input type="range" min="-45" max="45" value="0" id="legRotateSlide">
+      <label>Leg Swing</label>
+      
+      <input type="range" min="0" max="360" value="0" id="globalRotateSlide">
+      <label>Body Rotation</label>
+    </div>
+
+    <div class="control-group">
+      <button id="animateOn">Start Animation</button>
+      <button id="animateOff">Stop Animation</button>
+      <label>
+        Speed (ms):
+        <input type="number" id="speedInput" value="300" min="100" max="1000" step="50">
+      </label>
+    </div>
+  </div>
+
+  <script src="lib/webgl-debug.js"></script>
+  <script src="lib/webgl-utils.js"></script>
+  <script src="lib/cuon-utils.js"></script>
+  <script src="lib/cuon-matrix-cse160.js"></script>
+  <script src="Cube.js"></script>
+  <script src="BlockyAnimal.js"></script>
+</body>
+</html>
